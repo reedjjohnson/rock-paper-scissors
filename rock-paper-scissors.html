@@ -2,35 +2,62 @@
   <title>rock-paper-scissors</title>
 </head>
 
-<body>
-	<div class="container">
+<template name="main">
+    <div class="container">
       <header>
   	    <h1>Let's play rock-paper-scissors</h1>
   	  </header>
 
   	  <p>Make a choice</p>
-  	  <select>
-  	  	<option>Rock</option>
-  	  	<option>Paper</option>
-  	  	<option>Scissors</option>
-  	  </select> 
-      
+  	</div>
+    {{> yield}}
+
+     <div id="waiting" style="visibility: hidden">
+    	<p> One player has made a selection </p>
     </div>
 
-</body>
+    <div id="tied" style="visibility: hidden">
+    	<p> You have tied </p>
+    </div>
 
-<template name="rock">
-  <input type="image" id="rock" class="playing_choice" src="https://openclipart.org/image/2400px/svg_to_png/209758/harvestable-resources-rock.png" />
+    <div id="rock_wins" style="visibility: hidden">
+    	<p> Rock wins </p>
+    </div>
+
+    <div id="paper_wins" style="visibility: hidden">
+    	<p> Paper wins </p>
+    </div>
+
+    <div id="scissors_wins" style="visibility: hidden">
+    	<p> Scissors wins </p>
+    </div>
+
+    <div id="next_game" style="visibility: hidden">
+    	<p> Make a selection to start another game. </p>
+    </div>
 </template>
 
-<template name="paper">
-  <input type="image" id="paper" class="playing_choice" src="http://images.clipartpanda.com/paper-clipart-eiMyezain.png" />
+<template name="player1">
+  <li>Hello player 1</li>
+  <form id="p1_form">
+  	<input type="radio" id="rock" name="choice1" value="rock" checked>Rock
+  	<br>
+  	<input type="radio" id="paper" name="choice1" value="paper">Paper
+  	<br>
+  	<input type="radio" id="scissors" name="choice1" value="scissors">Scissors
+  	<input type="submit" value="Submit">
+  </form>
 </template>
 
-<template name="scissors">
-  <input type="image" id="scissor" class="playing_choice" src="http://images.clipartpanda.com/scissors-clipart-McLKp5Eca.png"/>
+<template name="player2">
+  <li>Hello player 2</li>
+  <form id="p2_form">
+  	<input type="radio" id="rock" name="choice2" value="rock" checked>Rock
+  	<br>
+  	<input type="radio" id="paper" name="choice2" value="paper">Paper
+  	<br>
+  	<input type="radio" id="scissors" name="choice2" value="scissors">Scissors
+  	<input type="submit" value="Submit">
+  </form>
 </template>
-
-
-
 
